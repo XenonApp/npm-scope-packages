@@ -1,9 +1,9 @@
 'use strict';
 const got = require('got');
 
-module.exports = username => {
-	if (typeof username !== 'string') {
-		return Promise.reject(new TypeError(`Expected a \`string\`, got \`${typeof username}\``));
+module.exports = scope => {
+	if (typeof scope !== 'string') {
+		return Promise.reject(new TypeError(`Expected a \`string\`, got \`${typeof scope}\``));
 	}
 
 	const size = 250;
@@ -11,7 +11,7 @@ module.exports = username => {
 	let ret = [];
 
 	return (function loop() {
-		const url = `https://api.npms.io/v2/search?q=maintainer:${username}&size=${size}&from=${offset}`;
+		const url = `https://api.npms.io/v2/search?q=scope:${scope}&size=${size}&from=${offset}`;
 
 		return got(url, {json: true}).then(res => {
 			ret = ret.concat(res.body.results.map(x => x.package));
