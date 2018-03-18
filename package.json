@@ -1,6 +1,6 @@
 {
 	"name": "npm-scope-packages",
-	"version": "0.0.0",
+	"version": "1.0.0",
 	"description": "Get packages by a npm scope",
 	"license": "MIT",
 	"repository": "xenonapp/npm-scope-packages",
